@@ -40,7 +40,7 @@ const useGetNewsApi = (search,currentPage) => {
 
   const delItems = useCallback(function(i) { setItems(i); }, []);
 
-  return [error, isLoaded, items, nbPages, delItems];
+  return [error, items, nbPages, delItems];
 };
 
 export default useGetNewsApi;

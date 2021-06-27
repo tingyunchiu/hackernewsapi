@@ -20,19 +20,11 @@ function App() {
       setCurrentPage(currentPage+1)
   }
 
-  let [error, isLoaded, items, nbPages, delItems] = useGetNewsApi(search,currentPage)
+  let [error, items, nbPages, delItems] = useGetNewsApi(search,currentPage)
 
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return (
-          <div style={{width: '100%'}}>
-            <h1>Hacker News Rest API</h1>
-            <SearchBox search = {search} onSearchChange = {onSearchChange}/>
-            <h2>Loading</h2>
-          </div>
-        );
   } else {
       return (
         <div  style={{width: '100%'}}>

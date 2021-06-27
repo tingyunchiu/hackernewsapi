@@ -18,7 +18,7 @@ return(
                 <th style={{width: '15%', wordBreak: 'break-all'}}>ID</th>
                 <th style={{width: '15%', wordBreak: 'break-all'}}>Author</th>
                 <th style={{width: '15%', wordBreak: 'break-all'}}>Comments</th>
-                <th style={{width: '20%', wordBreak: 'break-all'}}>Title</th>
+                <th style={{width: '20%', wordBreak: 'word-break'}}>Title</th>
                 <th style = {{wordBreak: 'break-all'}}>URL</th>
                 <th style={{width: '65px'}}>Remove</th>
               </tr>
