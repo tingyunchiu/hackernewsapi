@@ -3,12 +3,12 @@ import React from 'react';
 function Row({item, onDelete}) {
 return(
 	<tr>
-  		<td>{item.objectID}</td>
-  		<td>{item.author}</td>
-  		<td>{item.num_comments}</td>
-  		<td>{item.title}</td>
+  		<td style={{width: '15%', wordBreak: 'break-all'}}>{item.objectID}</td>
+  		<td style={{width: '15%', wordBreak: 'break-all'}}>{item.author}</td>
+  		<td style={{width: '15%', wordBreak: 'break-all'}}>{item.num_comments}</td>
+  		<td style={{width: '20%', wordBreak: 'break-all'}}>{item.title}</td>
   		<td style = {{wordBreak: 'break-all'}}>{item.url}</td>
-  		<td><button  id={item.objectID} onClick={(e) => onDelete(e.target.id)}> Delete </button></td>
+  		<td style={{width: '65px'}}><button  id={item.objectID} onClick={(e) => onDelete(e.target.id)}> Delete </button></td>
   	</tr>
 
 )

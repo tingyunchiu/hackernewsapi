@@ -7,12 +7,11 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [search, setSearch] = useState('');
-  const [preSearch, setPreSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const [nbPages,setNbPages] = useState(0);
 
   const onSearchChange = (e) => {
-    if (e !== preSearch){
+    if (e !== search){
       setSearch(e)
       setIsLoaded(false)
       setItems([]);
@@ -38,8 +37,7 @@ function App() {
           setIsLoaded(true);
           setItems(items => [...items, ...result.hits]);
           setNbPages(result.nbPages)
-          setPreSearch(search)
-           },
+          },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.

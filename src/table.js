@@ -12,15 +12,15 @@ items.forEach(item => {
 })
 return(
 	<div style = {{width: '100%', overflowX: 'auto'}}>
-        <table style = {{width: '100%'}}>
+        <table style = {{width: '100%', tableLayout: 'fixed'}}>
             <thead style={{backgroundColor: "grey"}}>
               <tr>
-                <th>ID</th>
-                <th>Author</th>
-                <th>Comments</th>
-                <th>Title</th>
+                <th style={{width: '15%', wordBreak: 'break-all'}}>ID</th>
+                <th style={{width: '15%', wordBreak: 'break-all'}}>Author</th>
+                <th style={{width: '15%', wordBreak: 'break-all'}}>Comments</th>
+                <th style={{width: '20%', wordBreak: 'break-all'}}>Title</th>
                 <th style = {{wordBreak: 'break-all'}}>URL</th>
-                <th>Remove</th>
+                <th style={{width: '65px'}}>Remove</th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>
