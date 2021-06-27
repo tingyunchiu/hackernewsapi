@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 
 function Row({item, onDelete}) {
 return(
@@ -7,7 +7,7 @@ return(
   		<td>{item.author}</td>
   		<td>{item.num_comments}</td>
   		<td>{item.title}</td>
-  		<td>{item.url}</td>
+  		<td style = {{wordBreak: 'break-all'}}>{item.url}</td>
   		<td><button  id={item.objectID} onClick={(e) => onDelete(e.target.id)}> Delete </button></td>
   	</tr>
 

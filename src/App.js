@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { useState,useEffect } from 'react';
 import SearchBox from './searchbox.js'
 import Table from './table.js'
@@ -14,24 +12,25 @@ function App() {
   const [nbPages,setNbPages] = useState(0);
 
   const onSearchChange = (e) => {
-    setSearch(e)
+    if (e !== preSearch){
+      setSearch(e)
+      setIsLoaded(false)
+      setItems([]);
+      setCurrentPage(0)
+      setNbPages(0)
+    }
   }
 
   const onDelete = (id) => {
     setItems(items.filter(item => item.objectID !== id))
   }
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
-  const getNews = useEffect(() => {
-
-    if (preSearch !== search) {
+  const onLoadMoreClicked =() => {
+      setCurrentPage(currentPage+1)
       setIsLoaded(false)
-      setItems([]);
-      setCurrentPage(0)
-      setNbPages(0)
-    }
+  }
+
+  useEffect(() => {
     fetch(`https://hn.algolia.com/api/v1/search?page=${currentPage}&hitsPerPage=10&query=${search}`)
       .then(res => res.json())
       .then(
@@ -56,31 +55,24 @@ function App() {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
     return (
-          <div>
+          <div style={{width: '100%'}}>
             <h1>Hacker News Rest API</h1>
             <SearchBox search = {search} onSearchChange = {onSearchChange}/>
             <h2>Loading</h2>
           </div>
         );
   } else {
-    if (currentPage < nbPages-1){
-        return (
-          <div>
-            <h1>Hacker News Rest API</h1>
-            <SearchBox search = {search} onSearchChange = {onSearchChange}/>
-            <Table style = {{'width': '99%'}}items = {items} onDelete = {onDelete}/>
-            <button onClick={() => setCurrentPage(currentPage+1)}> Load more </button>
-          </div>
-        );
-    } else {
-return (
-          <div>
-             <h1>Hacker News Rest API</h1>
-            <SearchBox search = {search} onSearchChange = {onSearchChange} />
-            <Table items = {items} onDelete = {onDelete}/>
-          </div>
-        );
-    }
+      return (
+        <div  style={{width: '100%'}}>
+          <h1>Hacker News Rest API</h1>
+          <SearchBox search = {search} onSearchChange = {onSearchChange}/>
+          <Table items = {items} onDelete = {onDelete}/>
+          {currentPage < nbPages-1
+            ? <button onClick={() => onLoadMoreClicked()}> Load more </button>
+            : null
+          }
+        </div>
+      );
   }
 }
 
