@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
-import useGetNewsApi from'./useGetNewsApi.js'
-import SearchBox from './searchbox.js'
-import Table from './table.js'
+import useGetNewsApi from'./functions/useGetNewsApi.js'
+import SearchBox from './components/searchbox.js'
+import Table from './components/table.js'
 
 function App() {
   const [search, setSearch] = useState('');
