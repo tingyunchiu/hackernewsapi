@@ -30,7 +30,10 @@ function App() {
         <div  style={{width: '100%'}}>
           <h1>Hacker News Rest API</h1>
           <SearchBox search = {search} onSearchChange = {onSearchChange}/>
-          <Table items = {items} onDelete = {onDelete}/>
+          {items.length >0
+            ? <Table items = {items} onDelete = {onDelete}/>
+            : null
+          }
           {currentPage < nbPages-1
             ? <button onClick={() => onLoadMoreClicked()}> Load more </button>
             : null
