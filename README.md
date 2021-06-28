@@ -10,4 +10,5 @@ The table will only show at most 10 results.
 3. A 'Load more' for user to click and look through more results (only if there are more results).
 
 # Structure
-https://github.com/tingyunchiu/hackernewsapi/blob/main/news.png?raw=true
+![](https://github.com/tingyunchiu/hackernewsapi/blob/main/news.png?raw=true)
+
