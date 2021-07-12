@@ -14,4 +14,4 @@ The table will only show at most 10 results.
 
 # How to use
 use "git clone https://github.com/tingyunchiu/hackernewsapi.git" <br />
-Then run "npm start" in the directory
+Then run "npm start" in the local directory
