@@ -12,3 +12,6 @@ The table will only show at most 10 results.
 # Structure
 ![](https://github.com/tingyunchiu/hackernewsapi/blob/main/news.png?raw=true)
 
+# How to use
+use "git clone https://github.com/tingyunchiu/hackernewsapi.git"
+then run "npm start" in the directory
